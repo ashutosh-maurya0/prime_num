@@ -1,3 +1,4 @@
+/* 0.6 */
 /* main.c: main function is defined in this file 
  * general structure of the PRIME NUMBER ANALYSIS 
  * PROGRAM is defined here 
@@ -15,10 +16,6 @@
 
 char **argv[10];
 int main (int argc, char *argv[])	{
-	for(temp_l_6 = 0; temp_l_6 < argc; temp_l_6++)
-				printf("%s\n",argv[temp_l_6]);
-	temp_l_6 = 0;
-	printf("argc %d\n",argc);
 /* taking out numeric from alpha numeric argument */
 	char **argv_v_2 = malloc(sizeof(char **)*10);							/* allocating memory to store alpha and numeric from "argv" */	
 				
@@ -120,6 +117,32 @@ int main (int argc, char *argv[])	{
 		printf("\n\targv[1] - %s		argv[2] - %s\n\n",argv[1], argv[2]);			
 			
 	}
+
+/* allocating buffer for storing prime numbers */
+	st_ret = malloc(sizeof(struct_ptr));
+	if(!st_ret)	{
+		printf("main.c:malloc 1 failled to assign memory\n");
+			exit(1);
+	}
+	temp_ret = malloc(sizeof(u_int64_t)*2);
+	if(!temp_ret)	{
+		printf("main.c:malloc 2 failled to assign memory\n");
+			exit(1);
+	}
+
+	/* "temp_ptr" */	
+	if(temp_v_3 > 100)
+		how_much_mem = (20*temp_v_3)/200;
+	else
+		how_much_mem = (20*temp_v_3);
+
+	printf("how_much_mem %d - %ld\n",how_much_mem,sizeof(u_int64_t)*how_much_mem);
+	temp_ptr = calloc(temp_v_3,sizeof(u_int64_t));
+	if(!temp_ptr)	{
+		printf("main.c:calloc failled to assign memory\n");
+			exit(1);
+	}
+
 /* whether  to call primef() or not */
 	/* this piece of code execute only when "from= >= 2 && from= <= 7" */
 	if(check_from == 1 && check_to == 1)	
@@ -137,7 +160,9 @@ int main (int argc, char *argv[])	{
 								printf("%ld - prime_num %ld\n",temp_l_7+1,st_ret -> temp_ptr_s_0[temp_l_7]);
 							printf("\nTOTAL PRIME - %ld\n",st_ret -> temp_v_s_0);
 							check_v_2 = 2;
-							exit(1); 
+							free(temp_ptr);
+							free(st_ret);
+							exit(1); 							
 						}
 					}
 				}
@@ -154,8 +179,8 @@ int main (int argc, char *argv[])	{
 		inc_v_1 = 1;
 		/* calling "primef()" */	
 		struct_ptr *st_ret = primef(&temp_v_4, &temp_v_2);
-//			for(temp_l_7 = 0; temp_l_7 < temp_v_3; temp_l_7++)
-//				printf("%ld - prime_num %ld\n",temp_l_7+1,temp_ptr[temp_l_7]);
+			for(temp_l_7 = 0; temp_l_7 < st_ret -> temp_v_s_0+1; temp_l_7++)
+				printf("%ld - prime_num %ld\n",temp_l_7+1,temp_ptr[temp_l_7]);
 		st_ret -> from_num = temp_v_2;
 		st_ret -> to_num = temp_v_3;
 		st_ret -> location_in_allo_mem = st_ret -> temp_v_s_0;
@@ -164,25 +189,24 @@ int main (int argc, char *argv[])	{
 //		printf("before => st_ret -> to_num     		 - %ld\n",st_ret -> to_num);	
 //		printf("before => st_ret -> temp_v_s_0 		 - %ld\n",st_ret -> temp_v_s_0);
 //		printf("before => st_ret -> location_in_allo_mem - %ld\n\n",st_ret -> location_in_allo_mem);
-//		primef_struct(st_ret);
+		primef_struct(st_ret);
 //		printf("\n\nafter => st_ret -> from_num   		 - %ld\n", st_ret -> from_num);
 //		printf("after => st_ret -> to_num  		 - %ld\n",st_ret -> to_num);	
 //		printf("after => st_ret -> temp_v_s_0  		 - %ld\n",st_ret -> temp_v_s_0);
-//		printf("after => st_ret -> location_in_allo_mem  - %ld\n\n",st_ret -> location_in_allo_mem);
-		
+//		printf("after => st_ret -> location_in_allo_mem  - %ld\n\n",st_ret -> location_in_allo_mem);		
 		/* printing prime numbers */		
 		if(temp_v_2 > 10)	{
 			for(temp_l_7 = st_ret -> location_in_allo_mem+1; temp_l_7 < st_ret -> temp_v_s_0+1; temp_l_7++)
-//				printf("%d - pprime_num %ld\n",inc_v_1++, temp_ptr[temp_l_7]);
+				printf("%d - pprime_num %ld\n",inc_v_1++, temp_ptr[temp_l_7]);
 			printf("\nTOTAL PRIME - %ld\n",st_ret -> temp_v_s_0 - st_ret -> location_in_allo_mem);
 		}		
 		else
 		 {
 			for(temp_l_7 = st_ret -> location_in_allo_mem+1; temp_l_7 < st_ret -> temp_v_s_0+1; temp_l_7++)
-//				printf("%d - prime_num %ld\n",inc_v_1++, temp_ptr[temp_l_7]);
+				printf("%d - prime_num %ld\n",inc_v_1++, temp_ptr[temp_l_7]);
 			printf("\nTOTAL PRIME - %ld\n",st_ret -> temp_v_s_0 - st_ret -> location_in_allo_mem+1);		
 		 }
-
-		exit(1);	
+	free(temp_ptr);
+	free(st_ret);	
 	}
 }

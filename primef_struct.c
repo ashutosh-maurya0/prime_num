@@ -1,3 +1,4 @@
+/* 0.6 */
 /* primef_struct(): this fucntion is same as "primef()" except it takes pointer to structure */
 
 struct_ptr *primef_struct(struct_ptr *argv_st)	{
@@ -5,10 +6,6 @@ struct_ptr *primef_struct(struct_ptr *argv_st)	{
 	u_int64_t from_num = argv_st -> from_num; 
 	u_int64_t to_num   = argv_st -> to_num;
 	u_int64_t temp_v_1 = argv_st -> temp_v_s_0;
-	
-	/* reallocating memory for storing number or prime numbers */
-	if(to_num-from_num >= 5 )
-	temp_ptr = realloc(temp_ptr,sizeof(u_int64_t)*(to_num-from_num));
 		  
 /* even or odd */
 	if (from_num % 2 == 0) {

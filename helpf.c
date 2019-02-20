@@ -1,3 +1,4 @@
+/* 0.6 */
 /* helpf.c: This file conatin helpf() 
  * definition
  */

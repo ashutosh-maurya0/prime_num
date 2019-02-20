@@ -1,3 +1,4 @@
+/* 0.6 */
 /* This file contain the variable declaration
  * and macros and function prototype 
  */
@@ -32,7 +33,7 @@ u_int64_t temp_v_1;	/* for index value of 'temp_ptr' */
 int check_v_0;		/* to check the condition weather value should assign or not to temp_ptr[temp_v] */
 u_int64_t temp_l_0;	/* for first loop */
 u_int64_t temp_l_1;	/* for second loop */
-
+struct_ptr *st_ret;	/* to store pointer of struct */
 /* help() */
 
 char *help[] = {"\nusages: main [options] [output]\n", "",
@@ -74,3 +75,4 @@ int check_to   = 0;	/* use in "to=" */
 char temp_arr_0[5];	/* use to store "from=" */
 char temp_arr_1[3];	/* use to store "to=" */
 int inc_v_1;
+int how_much_mem;
