@@ -10,7 +10,7 @@ typedef struct struct_ptr {
 	u_int64_t temp_v_s_0;		    /* primef.c: to stores "temp_v_0: */
 	u_int64_t from_num;		    /* primef_struct.c: to store "from=" */
 	u_int64_t to_num;		    /* primef_struct.c: to store "to=" */
-	int *temp_ptr_s_0;	    /* primef.c: this stores the address of "temp_ptr" */
+	u_int64_t *temp_ptr_s_0;	    /* primef.c: this stores the address of "temp_ptr" */
 	u_int64_t location_in_allo_mem;	    /* main.c: to sotre total no of primes between "2 from=" */ 	
     }struct_ptr;
 
@@ -24,8 +24,8 @@ helpf(char *argv_v_0[],int argc);
 struct_ptr 
 *primef_struct(struct_ptr *argv_st);
 
-/* primef() and primef_struct() variables */
-int *temp_ptr;	/* for malloc() */
+/* primef() variables */
+u_int64_t *temp_ptr;	/* for malloc() */
 u_int64_t *temp_ret;	/* for struct pointer */
 u_int64_t temp_v_0;	/* for condition in second loop have value of 'temp_v_1'*/
 u_int64_t temp_v_1;	/* for index value of 'temp_ptr' */

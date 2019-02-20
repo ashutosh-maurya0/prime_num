@@ -15,83 +15,22 @@
 
 char **argv[10];
 int main (int argc, char *argv[])	{
-//	for(temp_l_6 = 0; temp_l_6 < argc; temp_l_6++)
-//				printf("%s\n",argv[temp_l_6]);
-//	temp_l_6 = 0;
-//	printf("argc %d\n",argc);
+	for(temp_l_6 = 0; temp_l_6 < argc; temp_l_6++)
+				printf("%s\n",argv[temp_l_6]);
+	temp_l_6 = 0;
+	printf("argc %d\n",argc);
 /* taking out numeric from alpha numeric argument */
 	char **argv_v_2 = malloc(sizeof(char **)*10);							/* allocating memory to store alpha and numeric from "argv" */	
-					
-/* when to print "help()" */
-	/* this piece of code execute only when program call without any argument */	
-	if(argc == 1)	{
-		printf("argc == 1\n");
-		printf("from= to= argument must pass\n");
-		for(temp_l_6 = 0; temp_l_6 < 2*prime_arg; temp_l_6++)
-				printf("%s",help[temp_l_6]);
-		exit(1);
-	}
-	/* this piece of code execute when "--help" argument passed */	
-	if(argc == 2)	{	
-		if(strcmp(argv[1],help[4]) == 0) {
-			printf("argc == 2\n");
-			for(temp_l_6 = 0; temp_l_6 < 2*prime_arg; temp_l_6++)
-				printf("%s",help[temp_l_6]);
-			exit(1);						
-		}
-	}
+				
 
-	if(argc >= 3)	{	
-		/* from */
-		check_v_1 = 0;
-		temp_l_4 = 0;
-		while(temp_l_4 <=4)	{
-			if(*(argv[1]+temp_l_4) == *(help[12]+temp_l_4))	{
-				check_v_1++;
-			}
-			else
-			 {
-				printf("\nerror_from: invalid argument %s\n\n",argv[1]);
-				break;
-			 }
-			temp_l_4++;
-		}
-//		printf("\t1 => check_v_1 - %d\n",check_v_1);
-	
-		/* to */
-		check_v_3 = 0;
-		temp_l_5 = 0;
-		if(argc >= 3)	{
-			while(temp_l_5 <=2)	{
-				if(*(argv[2]+temp_l_5) == *(help[14]+temp_l_5))
-					check_v_3++;
-				else
-				 {
-					printf("\nerror_to: invalid argument %s\n\n",argv[2]);
-					exit(1);
-				 }
-				temp_l_5++;
-			}
-		}
-//		printf("\t3 => check_v_3 - %d\n",check_v_3);
-	}
-	else		
-	  {
-		printf("\"from= to=\" argument must pass\n");
-		printf("type \"--help\" for more detail\n");	
-	  }
 /* this piece of code execute "helpf()" */
-	if(check_v_1 == 5 && check_v_3 == 3)	{	
-		if(argc > 3)	{
-			ret_v_0 = helpf(argv, argc);
-			if(ret_v_0 == EXIT_FAILURE)	{
-				printf("argc >= 2\n");
-				for(temp_l_6 = 0; temp_l_6 < 2*prime_arg; temp_l_6++)
-					printf("%s",help[temp_l_6]);	
-						exit(1);
-			}
-		}
-	}	
+	ret_v_0 = helpf(argv, argc);
+	if(ret_v_0 == EXIT_FAILURE)	{
+		printf("argc >= 2\n");
+		for(temp_l_6 = 0; temp_l_6 < 2*prime_arg; temp_l_6++)
+			printf("%s",help[temp_l_6]);	
+				exit(1);
+	}
 
 	if(check_v_1 == 5 && check_v_3 == 3 )	{	
 	/* 'from=' */
@@ -135,7 +74,7 @@ int main (int argc, char *argv[])	{
 		printf("\tcheck_from - %d\n",check_from);
 
 	/* 'to=' */
-		printf("\n\t2 => check_v_3 %d",check_v_3);										
+		printf("\t2 => check_v_3 %d\n",check_v_3);										
 		if(check_v_3 == 3)	{
 			printf("\n\t\tTO\t\t\n");
 			printf("\t1 => argv[2] - %s	temp_arr_1 - %s\n",argv[2],temp_arr_1);
@@ -194,8 +133,8 @@ int main (int argc, char *argv[])	{
 							/* geting return from primef() */
 							struct_ptr *st_ret = primef(&temp_v_2, &temp_v_3);	
 							/* printing the prime number */
-//							for(temp_l_7 = 0; temp_l_7 < st_ret -> temp_v_s_0+1; temp_l_7++)
-//								printf("%ld - prime_num %ld\n",temp_l_7+1,st_ret -> temp_ptr_s_0[temp_l_7]);
+							for(temp_l_7 = 0; temp_l_7 < st_ret -> temp_v_s_0+1; temp_l_7++)
+								printf("%ld - prime_num %ld\n",temp_l_7+1,st_ret -> temp_ptr_s_0[temp_l_7]);
 							printf("\nTOTAL PRIME - %ld\n",st_ret -> temp_v_s_0);
 							check_v_2 = 2;
 							exit(1); 
@@ -225,24 +164,25 @@ int main (int argc, char *argv[])	{
 //		printf("before => st_ret -> to_num     		 - %ld\n",st_ret -> to_num);	
 //		printf("before => st_ret -> temp_v_s_0 		 - %ld\n",st_ret -> temp_v_s_0);
 //		printf("before => st_ret -> location_in_allo_mem - %ld\n\n",st_ret -> location_in_allo_mem);
-		primef_struct(st_ret);
+//		primef_struct(st_ret);
 //		printf("\n\nafter => st_ret -> from_num   		 - %ld\n", st_ret -> from_num);
 //		printf("after => st_ret -> to_num  		 - %ld\n",st_ret -> to_num);	
 //		printf("after => st_ret -> temp_v_s_0  		 - %ld\n",st_ret -> temp_v_s_0);
 //		printf("after => st_ret -> location_in_allo_mem  - %ld\n\n",st_ret -> location_in_allo_mem);
+		
 		/* printing prime numbers */		
 		if(temp_v_2 > 10)	{
-//			for(temp_l_7 = st_ret -> location_in_allo_mem+1; temp_l_7 < st_ret -> temp_v_s_0+1; temp_l_7++)
-//				printf("%d - prime_num %ld\n",inc_v_1++, temp_ptr[temp_l_7]);
+			for(temp_l_7 = st_ret -> location_in_allo_mem+1; temp_l_7 < st_ret -> temp_v_s_0+1; temp_l_7++)
+//				printf("%d - pprime_num %ld\n",inc_v_1++, temp_ptr[temp_l_7]);
 			printf("\nTOTAL PRIME - %ld\n",st_ret -> temp_v_s_0 - st_ret -> location_in_allo_mem);
 		}		
 		else
 		 {
-//			for(temp_l_7 = st_ret -> location_in_allo_mem+1; temp_l_7 < st_ret -> temp_v_s_0+1; temp_l_7++)
+			for(temp_l_7 = st_ret -> location_in_allo_mem+1; temp_l_7 < st_ret -> temp_v_s_0+1; temp_l_7++)
 //				printf("%d - prime_num %ld\n",inc_v_1++, temp_ptr[temp_l_7]);
-			printf("\nTOTAL PRIME - %ld\n",st_ret -> temp_v_s_0 - st_ret -> location_in_allo_mem);		
+			printf("\nTOTAL PRIME - %ld\n",st_ret -> temp_v_s_0 - st_ret -> location_in_allo_mem+1);		
 		 }
-free(temp_ptr);
+
 		exit(1);	
 	}
 }
