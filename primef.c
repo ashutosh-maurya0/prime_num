@@ -1,3 +1,4 @@
+/* 0.6 */
 /* This function is part of the program PRIME NUMBER ANALYSIS 
  * program will help to analysis rate of increasing and decreasing
  * in prime number.
@@ -8,11 +9,7 @@
 /* function "primef();" */
 struct_ptr 
 *primef(u_int64_t *from_num, u_int64_t *to_num)	{
-	struct_ptr *st_ret = malloc(sizeof(struct_ptr));
-	/* allocating memory for storing number or prime numbers */
-	temp_ptr = calloc(*to_num*1000000,sizeof(u_int64_t));
-	temp_ret = malloc(sizeof(u_int64_t)*2);
-
+	
 	/* assigning '1', '2', '5', and '7' to temp_ptr[] */	 	
 		temp_ptr[0] = 1;
 		temp_ptr[1] = 2;

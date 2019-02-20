@@ -1,1 +1,6 @@
-in 6th stage of program prime_num "help" print from "helpf.c" 
+in 6th stage of program prime_num "help" print from "helpf.c"
+
+main.c: memory is allocated directly from main.c for storing prime numbers
+	line no 124
+
+primef_struct.c: realloc() is removed
