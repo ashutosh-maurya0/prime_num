@@ -1,6 +1,59 @@
-in 6th stage of program prime_num "help" print from "helpf.c"
+************************
+**********0.6***********
+************************
 
-main.c: memory is allocated directly from main.c for storing prime numbers
+***************************
+*	Feb-21-2019 	  *
+*	1:00:00 AM	  *
+***************************		
+hepf.c: "help" print from "helpf.c" rather than "main.c"
+
+main.c: memory is allocated directly from "main.c" for storing prime numbers
 	line no 124
 
-primef_struct.c: realloc() is removed
+primef_struct.c: realloc() is removed.
+
+variables.h: new variable declared for "main.c".
+
+
+
+
+
+************************
+**********0.7***********
+************************
+
+***************************
+*	   Feb-21-2019 	  *
+*	   4:23:00 AM	 	  *
+***************************
+main.c: printing way of prime numbers is changed in if(from= >= 8) case
+	5 new ways are defined to print prime numbers 
+main.c: in case if(from= == 2) 
+	printing way is changed now it will print prime numbers from "2"
+
+
+
+
+
+************************
+*****0.7-testsuite_v*****
+************************
+
+***************************
+*		Feb-21-2019 	  *
+***************************
+temprory version
+
+
+
+************************
+***********0.7**********
+************************
+
+***************************
+*          Feb-24-2019           *
+*           2:20 AM                *
+***************************
+task: taking output "-o"
+

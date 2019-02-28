@@ -1,4 +1,4 @@
-/* 0.6 */
+/* 0.7 */
 /* helpf.c: This file conatin helpf() 
  * definition
  */
@@ -11,7 +11,8 @@ int helpf(char *argv_v_0[], int argc)	{
 	/* when to print "help()" */
 	/* this piece of code execute only when program call without any argument */	
 	if(argc == 1)	{
-		printf("argc == 1\n");
+//		printf("argc == 1\n");
+		printf(ANSI_COLOR_RED   "\033[1merror:\033[0m"   ANSI_COLOR_RESET);
 		printf("from= to= argument must pass\n");
 		for(temp_l_6 = 0; temp_l_6 < 2*prime_arg; temp_l_6++)
 				printf("%s",help[temp_l_6]);
@@ -20,7 +21,7 @@ int helpf(char *argv_v_0[], int argc)	{
 	/* this piece of code execute when "--help" argument passed */	
 	if(argc == 2)	{	
 		if(strcmp(argv_v_0[1],help[4]) == 0) {
-			printf("argc == 2\n");
+//			printf("argc == 2\n");
 			for(temp_l_6 = 0; temp_l_6 < 2*prime_arg; temp_l_6++)
 				printf("%s",help[temp_l_6]);
 			exit(1);						
@@ -37,12 +38,13 @@ int helpf(char *argv_v_0[], int argc)	{
 			}
 			else
 			 {
-				printf("\nerror_from: invalid argument %s\n\n",argv_v_0[1]);
+				printf(ANSI_COLOR_RED   "\033[1m\nerror_from:\033[0m"   ANSI_COLOR_RESET);
+				printf(": invalid argument %s\n\n",argv_v_0[1]);
 				break;
 			 }
 			temp_l_4++;
 		}
-		printf("\t1 => check_v_1 - %d\n",check_v_1);
+//		printf("\t1 => check_v_1 - %d\n",check_v_1);
 	
 		/* to */
 		check_v_3 = 0;
@@ -53,13 +55,14 @@ int helpf(char *argv_v_0[], int argc)	{
 					check_v_3++;
 				else
 				 {
-					printf("\nerror_to: invalid argument %s\n\n",argv_v_0[2]);
+					printf(ANSI_COLOR_RED   "\033[1m\nerror_to:\033[0m"   ANSI_COLOR_RESET);
+					printf("invalid argument %s\n\n",argv_v_0[2]);
 					exit(1);
 				 }
 				temp_l_5++;
 			}
 		}
-		printf("\t3 => check_v_3 - %d\n",check_v_3);
+//		printf("\t3 => check_v_3 - %d\n",check_v_3);
 	}
 	else		
 	  {
@@ -86,7 +89,8 @@ int helpf(char *argv_v_0[], int argc)	{
 	//			printf("temp_l_3 - %d\n", temp_l_3);
 	//			printf("argv_v_0[%d]	  -	%s\n",temp_l_2, argv_v_0[temp_l_2]);
 				if(check_v_4 == 0)	{
-					printf("help() invalid argument: %s\n", argv_v_0[temp_l_2]);
+					printf(ANSI_COLOR_RED   "\033[1mfatal error:\033[0m"   ANSI_COLOR_RESET);
+					printf("invalid argument %s\n", argv_v_0[temp_l_2]);
 					argv_v_1[inc_v_0] = "z";	
 					check_v_4 = 0;
 					check_v_5 = 1;
