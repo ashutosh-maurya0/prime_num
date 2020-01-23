@@ -50,7 +50,7 @@ int main (int argc, char *argv[])	{
 				temp_l_4 = 0;
 				while(temp_l_4 <= 4)	{
 					temp_arr_0 [temp_l_4] = *(argv[1]+temp_l_4);
-					
+					temp_l_4++;
 				}
 				/* taking out number */
 				argv_v_2[0] = &(*(argv[1]+5));
