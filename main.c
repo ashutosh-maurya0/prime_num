@@ -169,40 +169,24 @@ int main (int argc, char *argv[])	{
 		printf("main.c:calloc 5th failed to assign memory\n");
 			exit(EXIT_FAILURE);	
 	}
-	temp_ptr_5 = calloc(temp_v_3,sizeof(u_int64_t));
-	if(!temp_ptr_5)	{
-		printf("main.c: calloc 6th failed to assign memory\n");
-			exit(EXIT_FAILURE);
-	}
-	temp_ptr_6 = calloc(temp_v_3, sizeof(u_int64_t));
-	if(!temp_ptr_6)	{
-		printf("main.c: calloc 7th failed to assign memory\n");
-			exit(EXIT_FAILURE);	
-	}
 
 	struct_ret_0->temp_ptr_s_0 = temp_ptr_0;
 	struct_ret_0->temp_ptr_s_1 = temp_ptr_1;
 	struct_ret_0->temp_ptr_s_2 = temp_ptr_2;
 	struct_ret_0->temp_ptr_s_3 = temp_ptr_3;
 	struct_ret_0->temp_ptr_s_4 = temp_ptr_4;
-	struct_ret_0->temp_ptr_s_5 = temp_ptr_5;
-	struct_ret_0->temp_ptr_s_6 = temp_ptr_6;
 
 	struct_ret_0 -> temp_v_s_0 = 0;
 	struct_ret_0 -> temp_v_s_1 = 0;
 	struct_ret_0 -> temp_v_s_2 = 0 ;
 	struct_ret_0 -> temp_v_s_3 = 0;
 	struct_ret_0 -> temp_v_s_4 = 0;
-	struct_ret_0 -> temp_v_s_5 = 0;
-	struct_ret_0 -> temp_v_s_6 = 0;
 
 	tstruct_0.chk_st.chk_s_v_0 = -1;
 	tstruct_0.chk_st.chk_s_v_1 = -1;
 	tstruct_0.chk_st.chk_s_v_2 = -1;
 	tstruct_0.chk_st.chk_s_v_3 = -1;
 	tstruct_0.chk_st.chk_s_v_4 = -1;
-	tstruct_0.chk_st.chk_s_v_5 = -1;
-	tstruct_0.chk_st.chk_s_v_6 = -1;
 
 /* whether  to call primef() or not */
 	/* this piece of code execute only when "from= >= 2 && from= <= 7" */
@@ -216,32 +200,24 @@ int main (int argc, char *argv[])	{
 						if(strcmp(argv[temp_l_6],help[14]) == 0)	{
 /**************************************** Thread 1 start from here **************************************/
 								tstruct_0.from_num = temp_v_2;
-								tstruct_0.to_num = ((14*temp_v_3)/100);
+								tstruct_0.to_num = ((20*temp_v_3)/100);
 								pret_0 = pthread_create(&thread[0], NULL, primef1, &tstruct_0);
 /**************************************** Thread 2 start from here **************************************/							
 								tstruct_0.from_num_1 = tstruct_0.to_num +1;
-								tstruct_0.to_num_1 = ((14*temp_v_3)/100)+tstruct_0.to_num;							
+								tstruct_0.to_num_1 = ((15*temp_v_3)/100)+tstruct_0.to_num;							
 								pret_1 = pthread_create(&thread[1], NULL, primef2, &tstruct_0);
 /**************************************** Thread 3 start from here **************************************/
 								tstruct_0.from_num_2 = tstruct_0.to_num_1 +1;
-								tstruct_0.to_num_2 = ((14*temp_v_3)/100)+tstruct_0.to_num_1;
+								tstruct_0.to_num_2 = ((22*temp_v_3)/100)+tstruct_0.to_num_1;
 								pret_2 = pthread_create(&thread[2], NULL, primef3, &tstruct_0);
 /**************************************** Thread 4 start from here **************************************/
 								tstruct_0.from_num_3 = tstruct_0.to_num_2 +1;
-								tstruct_0.to_num_3 = ((14*temp_v_3)/100)+tstruct_0.to_num_2;
+								tstruct_0.to_num_3 = ((22*temp_v_3)/100)+tstruct_0.to_num_2;
 								pret_3 = pthread_create(&thread[3], NULL, primef4, &tstruct_0); 
 /**************************************** Thread 5 start from here ********************************************/							
 								tstruct_0.from_num_4 = tstruct_0.to_num_3 +1;
-								tstruct_0.to_num_4 = ((14*temp_v_3)/100)+tstruct_0.to_num_3;
+								tstruct_0.to_num_4 = temp_v_3;
 								pret_4 = pthread_create(&thread[4], NULL, primef5, &tstruct_0);
-/**************************************** Thread 6 start from here ********************************************/							
-								tstruct_0.from_num_5 = tstruct_0.to_num_4 +1;
-								tstruct_0.to_num_5 = ((14*temp_v_3)/100)+tstruct_0.to_num_4;
-								pret_5 = pthread_create(&thread[5], NULL, primef6, &tstruct_0);
-/**************************************** Thread 6 start from here ********************************************/							
-								tstruct_0.from_num_6 = tstruct_0.to_num_5 +1;
-								tstruct_0.to_num_6 = temp_v_3;
-								pret_6 = pthread_create(&thread[6], NULL, primef7, &tstruct_0);
 
 /**************************************** Joining all created threads to main rouitine ******************************/
 								pthread_join(thread[0], NULL);
@@ -249,8 +225,6 @@ int main (int argc, char *argv[])	{
 								pthread_join(thread[2], NULL);
 								pthread_join(thread[3], NULL); 
 								pthread_join(thread[4], NULL);
-								pthread_join(thread[5], NULL);
-								pthread_join(thread[6], NULL);
 
 /*************************************** Thread 1 printing start from here ******************************************/
 //							for(temp_l_7 = 1; temp_l_7 < struct_ret_0 -> temp_v_s_0+1; temp_l_7++)
@@ -282,27 +256,13 @@ int main (int argc, char *argv[])	{
 							printf("TOTAL PRIME_5 - %ld\n\n",struct_ret_0 -> temp_v_s_4);
 							check_v_2 = 2;
 
-/************************************ Thread 6 printing start from here *********************************************/												
-//							for(temp_l_7 = 0; temp_l_7 < struct_ret_0 -> temp_v_s_5; temp_l_7++)
-//								printf("%ld - prime_num %ld\n",1+temp_l_7+struct_ret_0->temp_v_s_0+struct_ret_0->temp_v_s_1+struct_ret_0->temp_v_s_2+struct_ret_0->temp_v_s_3+struct_ret_0->temp_v_s_4,temp_ptr_5[temp_l_7]);							
-							printf("TOTAL PRIME_6 - %ld\n\n",struct_ret_0 -> temp_v_s_5);
-							check_v_2 = 2;
-
-/************************************ Thread 7 printing start from here *********************************************/												
-//							for(temp_l_7 = 0; temp_l_7 < struct_ret_0 -> temp_v_s_6; temp_l_7++)
-//								printf("%ld - prime_num %ld\n",1+temp_l_7+struct_ret_0->temp_v_s_0+struct_ret_0->temp_v_s_1+struct_ret_0->temp_v_s_2+struct_ret_0->temp_v_s_3+struct_ret_0->temp_v_s_4+struct_ret_0->temp_v_s_5,temp_ptr_6[temp_l_7]);
-							printf("TOTAL PRIME_7 - %ld\n\n",struct_ret_0 -> temp_v_s_6);
-							check_v_2 = 2;
-
 							printf("TOTAL PRIME_1 - %ld\n",struct_ret_0 -> temp_v_s_0);
 							printf("TOTAL PRIME_2 - %ld\n",struct_ret_0 -> temp_v_s_1);
 							printf("TOTAL PRIME_3 - %ld\n",struct_ret_0 -> temp_v_s_2);
 							printf("TOTAL PRIME_4 - %ld\n",struct_ret_0 -> temp_v_s_3);
 							printf("TOTAL PRIME_5 - %ld\n",struct_ret_0 -> temp_v_s_4);
-							printf("TOTAL PRIME_6 - %ld\n",struct_ret_0 -> temp_v_s_5);
-							printf("TOTAL PRIME_7 - %ld\n",struct_ret_0 -> temp_v_s_6);
-
-							printf("\nTOTAL PRIME - %ld",struct_ret_0->temp_v_s_6+struct_ret_0->temp_v_s_5+struct_ret_0->temp_v_s_4+struct_ret_0->temp_v_s_3+struct_ret_0 -> temp_v_s_2+struct_ret_0->temp_v_s_1+struct_ret_0->temp_v_s_0);
+					
+							printf("\nTOTAL PRIME - %ld",struct_ret_0->temp_v_s_4+struct_ret_0->temp_v_s_3+struct_ret_0 -> temp_v_s_2+struct_ret_0->temp_v_s_1+struct_ret_0->temp_v_s_0);
 							check_v_2 = 2; 
 							goto EXIT;
 						}
